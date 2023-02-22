@@ -10,7 +10,7 @@
 int main(void)
 {
 	int x, total = 0;
-​
+
 	for (x = 0; x <= 1023; x++)
 	{
 		if ((x % 3) == 0 || (x % 5) == 0)
