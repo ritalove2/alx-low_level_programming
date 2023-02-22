@@ -1,6 +1,6 @@
 #include <stdio.h>
-​
-​
+
+
 /**
  * main -To add all multiples of 5 or 3 below 1024
  *       together.
@@ -16,8 +16,8 @@ int main(void)
 		if ((x % 3) == 0 || (x % 5) == 0)
 			total = total + x;
 	}
-​
+
 	printf("%d\n", total);
-​
-	return (0);
+
+return (0);
 }

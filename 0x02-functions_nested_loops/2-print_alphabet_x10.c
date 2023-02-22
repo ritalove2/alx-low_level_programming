@@ -6,7 +6,7 @@ void print_alphabet_x10(void)
 {
 	int newline = 0;
 	char lc;
-​
+
 	while (newline <= 9)
 	{
 		for (lc = 'a'; lc <= 'z'; lc++)
