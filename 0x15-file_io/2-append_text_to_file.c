@@ -1,20 +1,50 @@
 #include "main.h"
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 /**
- * get_bit - Returns the value of a bit at a given index.
- * @n: The bits
- * @index: index to check bit and get value
+ * _strlen - length of a string
+ * @str: pointer to string
  *
- * Return: -1 if error, Else value of bit
+ * Return: length of string
  */
 
-int get_bit(unsigned long int n, unsigned int index)
+size_t _strlen(char *str)
 {
-	if (index >= (sizeof(unsigned long int) * 8))
+	size_t i;
+
+	for (i = 0; str[i]; i++)
+		;
+	return (i);
+}
+
+/**
+ * append_text_to_file - Appends text at the end of a file.
+ * @filename: A pointer to the name of the file.
+ * @text_content: The string to add to the end of the file.
+ *
+ * Return: -1 If the function fails or filename is NULL
+ *         -1 If the file does not exist the user lacks write permissions
+ *         Else 1.
+ */
+
+int append_text_to_file(const char *filename, char *text_content)
+{
+	int fd;
+	ssize_t len;
+
+	if (filename == NULL)
 		return (-1);
-
-	if ((n & (1 << index)) == 0)
-		return (0);
-
+	fd = open(filename, O_WRONLY | O_APPEND);
+	if (fd == -1)
+		return (-1);
+	if (text_content != NULL)
+		len = write(fd, text_content, _strlen(text_content));
+	close(fd);
+	if (len == -1)
+		return (-1);
 	return (1);
 }
+

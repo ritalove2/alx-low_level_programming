@@ -19,7 +19,7 @@ void check97(int argc)
 		exit(97);
 	}
 }
-​
+
 /**
  * check98 - checks that file_from exists and can be read
  * @check: checks if true of false
